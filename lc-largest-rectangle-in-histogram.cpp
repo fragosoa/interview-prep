@@ -16,6 +16,26 @@
 #include <list>
 using namespace std;
 
+/ nlogn divide and conquer
+
+int helper(int left,int right, vector<int> &nums){
+        if(left>right) return 0;
+        int mini = left;
+        int currentArea = 0;
+        for(int i=left;i<right+1;i++){
+            if(nums[i] < nums[mini]){
+                mini = i;
+            }
+        }
+        currentArea = nums[mini]*(right-left+1);
+        int maxLeft = helper(left,mini-1,nums);
+        int maxRight = helper(mini+1,right,nums);
+        return max(max(currentArea,maxLeft),maxRight);
+}
+int largestRectangleArea2(vector<int>& heights) {
+    int res = helper(0,heights.size()-1,heights);
+    return res;
+}
 
 int largestRectangleArea(vector<int>& heights) {
         stack<int> s;
