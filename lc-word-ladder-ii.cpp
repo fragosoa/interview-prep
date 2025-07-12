@@ -17,6 +17,10 @@
 using namespace std;
 
 bool adj[501][501];
+vector<int> distances[1000];
+vector<vector<string>> res;
+vector<int> path;
+
 int wordDistance(string s,string t){
     if(s.length() != t.length()) return -1;
     int count = 0;
@@ -27,19 +31,6 @@ int wordDistance(string s,string t){
 
     return count;
 }
-//debug
-void printM(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            cout << adj[i][j] << " ";
-        }
-        cout << endl;
-    }
-}
-
-// maps distance: indexes (in word list)
-vector<int> distances[1000];
-bool visited[502];
 
 int bfs(int src, int end, vector<string> &wordList){
     vector<int> dist(500,INT_MAX);
@@ -52,7 +43,6 @@ int bfs(int src, int end, vector<string> &wordList){
     
     while(!q.empty()){
         int u = q.front(); q.pop();
-        visited[u] = true;
         
         for(int j=0;j<n;j++){
             if(adj[u][j] == 1){
@@ -68,8 +58,6 @@ int bfs(int src, int end, vector<string> &wordList){
     
     return dist[end];
 }
-vector<vector<string>> res;
-vector<int> path;
 
 vector<string> convertToString(vector<string> &wordList){
     vector<string> ans = {};
