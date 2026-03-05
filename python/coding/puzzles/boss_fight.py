@@ -2,7 +2,6 @@ from typing import List
 
 
 def getMaxDamageDealt(N: int, H: List[int], D: List[int], B: int) -> float:
-  # hee
   idx = list(range(N))
   byH = sorted(idx, key=lambda i: (-H[i],-D[i]))
   byD = sorted(idx, key=lambda i: (-D[i],-H[i]))
