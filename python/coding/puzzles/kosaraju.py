@@ -48,7 +48,6 @@ def kosaraju(N,M,A,B):
         if u not in visited:
             dfs2(u,id)
             id += 1
-    print(component_id)
     
     # build condensed graph
     
