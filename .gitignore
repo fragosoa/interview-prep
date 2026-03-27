@@ -1,0 +1,8 @@
+.DS_Store
+
+# Compiled C++ binaries in cpp/usaco
+cpp/usaco/**/*
+!cpp/usaco/**/
+!cpp/usaco/**/*.cpp
+!cpp/usaco/**/*.in
+!cpp/usaco/**/*.out
