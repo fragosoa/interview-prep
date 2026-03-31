@@ -25,6 +25,23 @@ int getmoves(vector<int> conf){
 
     return moves;
 }
+
+vector<int> perms;
+bool used[100];
+void get_backtrack_perms(vector<int> bis){
+    if(perms.size() == bis.size()){
+        //print_perm
+        return;
+    }
+    for(int i=0;i<bis.size();i++){
+        if(used[i]) continue;
+        used[i] = true;
+        perms.push_back(bis[i]);
+        get_backtrack_perms(bis);
+        used[i] = false;
+        perms.pop_back();
+    }
+}
 int minmovs = 10000000;
 int main(){
     
