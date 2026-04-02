@@ -30,6 +30,8 @@ int main(){
         });
         long long currsum = 0;
         for(int i=0;i<n;i++){
+            // we can also use this way: 
+            // currsum += (long long)(2*i-n+1)*(curr[i]);
             currsum += (long long)(n-1-i)*(curr[i]-curr[n-1-i]);
         }
         sum += currsum;
