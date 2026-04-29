@@ -12,18 +12,15 @@ int main() {
         cin>>nums[i];
     }
 
-    for(int i=1;i<=n;i++){
-        nums[i] += nums[i-1];
-    }
-
     map<ll,ll> freq;
     freq[0] = 1;
 
     ll ans = 0;
-
-    for(int i=1;i<=n;i++){
-        ans += freq[nums[i] - x];
-        freq[nums[i]]++;
+    int pref =0 ;
+    for(int i=0;i<n;i++){
+        pref += nums[i]; 
+        ans += freq[pref - x];
+        freq[pref]++;
     }
 
     cout << ans << endl;
