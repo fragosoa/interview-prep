@@ -36,6 +36,7 @@ int main() {
     }
 
     cout << maxg << endl;
+
     
     return 0;
 }
